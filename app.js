@@ -12,6 +12,8 @@ var leaderRouter = require('./routes/leaderRouter');
 
 const mongoose =  require('mongoose');  //importing mongoose module into  app.js file
 const Dishes = require('./models/dishes');
+const Promotions = require('./models/promotions');
+//const Leaders = require('./models/leaders');
 
 const url = 'mongodb://localhost:27017/conFusion';
 
@@ -19,6 +21,7 @@ const connect = mongoose.connect(url);  //establishing theconnection
 connect.then((db) => {
   console.log('Connected to the server!');
 },(err) => {console.log(err)});
+
 
 var app = express();
 

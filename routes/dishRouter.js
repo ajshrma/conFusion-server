@@ -8,7 +8,7 @@ const dishRouter = express.Router();
 
 dishRouter.use(bodyParser.json());
 
-// updating tha / part
+// updating tha '/' part
 dishRouter.route('/')
 .get((req,res,next) =>
 {
@@ -47,7 +47,7 @@ dishRouter.route('/')
     },(err) => next(err)) 
     .catch((err) => next(err));
 })
-// updating tha /:dishId
+// updating tha /:dishId    
 dishRouter.route('/:dishId')
 .get( (req,res,next) => {
   Dishes.findById(req.params.dishId)
@@ -65,14 +65,14 @@ dishRouter.route('/:dishId')
 })
 
 .put( (req, res, next) => {
-  Dishes.findByIdAndUpdate(req.params.dishId,{
-      $set: req.body
-  },{new: true})
-  .then((dish) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type','application/json');
-    res.json(dish);
-   },(err) => next(err))
+      Dishes.findByIdAndUpdate(req.params.dishId,{
+        $set: req.body
+    },{new: true})
+    .then((dish) => {
+       res.statusCode = 200;
+       res.setHeader('Content-Type','application/json');
+       res.json(dish);   
+    },(err) => next(err))
    .catch((err) => next(err));
 })
 
