@@ -1,8 +1,8 @@
-/*const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 require('mongoose-currency').loadType(mongoose);
 const Currency = mongoose.Types.Currency;
-/*
+
 const commentSchema = new Schema({
 
     rating: {
@@ -61,7 +61,6 @@ const leaderSchema = new Schema({
     timestamps: true
 });
 
-var Leaders = mongoose.model('Leaders',leaderSchema);
+var Leaders = mongoose.model('Leader',leaderSchema);
 
 module.exports = Leaders;
-*/
