@@ -23,11 +23,22 @@ router.post('/signup',(req,res,next) =>  {
       res.json({err: err})
     }
     else{
-     passport.authenticate('local')(req,res, () => {
-      res.statuscode =200;
-      res.setHeader('Content-Type','applicatio/json');
-      res.json({success: true, status: 'Registration successfull!'}); 
-     });
+      if(req.body.firstname)
+        user.firstname = req.body.firstname;
+      if(req.body.lastname)
+        user.lastname = req.body.lastname;
+      user.save((err,user) => {
+        if(err) {
+          res.statuscode =500;
+          res.setHeader('Content-Type','applicatio/json');
+          res.json({err: err})
+        }
+        passport.authenticate('local')(req,res, () => {
+          res.statuscode =200;
+          res.setHeader('Content-Type','applicatio/json');
+          res.json({success: true, status: 'Registration successfull!'}); 
+         });
+      });
     }
   });
 });

@@ -4,6 +4,14 @@
 
  var User = new Schema({  // here var User => is the new schema and we can write it as UserSchema also
 
+    firstname: {
+        type: String,
+        default: ''
+    },
+    lastname: {
+        type: String,
+        default: ''
+    },
     admin: {
         type: Boolean,
         default: false
